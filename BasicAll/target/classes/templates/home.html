@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Management and REST API Designer</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #111010;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #e5e1e1;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #2f2d2d;
+        }
+
+        .api-example {
+            background-color: #e5e1e1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .contact-form {
+            background-color: #e5e1e1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #414141;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0a0a0a;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Kshitiz  a Backend Developer,</h1>
+    <h1>Database Manager and REST API Designer</h1>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#database">Database</a>
+    <a href="#api">API</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<main>
+    <div id="home" class="section">
+        <h2>Welcome to Database Management and REST API Design</h2>
+        <p>As a skilled database management and REST API designer, I provide comprehensive solutions to help businesses streamline their data operations and build scalable, efficient APIs.</p>
+    </div>
+
+    <div id="database" class="section">
+        <h2>Database Management Services</h2>
+        <ul>
+            <li>Database design and implementation</li>
+            <li>Database optimization and performance tuning</li>
+            <li>Database migration and integration</li>
+            <li>Data analysis and reporting</li>
+        </ul>
+    </div>
+
+    <div id="api" class="section">
+        <h2>REST API Design</h2>
+        <p>I specialize in designing and developing robust, scalable, and secure REST APIs to power your applications. My approach focuses on the following key aspects:</p>
+        <ul>
+            <li>API architecture and resource modeling</li>
+            <li>Restful principles and best practices</li>
+            <li>API versioning and documentation</li>
+            <li>Authentication and authorization</li>
+            <li>Error handling and response formats</li>
+        </ul>
+    </div>
+
+    <div id="contact" class="section">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form th:action="@{/contact}" th:object="${contactForm}" method="POST">
+                <input type="text" placeholder="Name"   name="name" required>
+                <input type="email" placeholder="Email"  name="email" required>
+                <input type="tel" placeholder="phone"  name="phone" required>
+                <input type="text" placeholder="Address"  name="address" required>
+                <textarea placeholder="Message" rows="5"   name="msg" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Example API Endpoint</h2>
+        <div class="api-example">
+            <h3>GET /api/users</h3>
+            <p>Retrieve a list of users</p>
+            <pre><code>
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com"
+    }
+  ]
+}
+        </code></pre>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024  Kshitiz. All rights reserved.</p>
+</footer>
+</body>
+</html>

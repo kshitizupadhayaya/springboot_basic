@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Subscription Page</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .subscription-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .option {
+            width: 200px;
+            padding: 20px;
+            margin: 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .option h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .option ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .option li {
+            margin-bottom: 10px;
+        }
+
+        .option button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .popup-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Subscription Options</h1>
+    <div class="subscription-options">
+        <div class="option">
+            <h3>Basic</h3>
+            <p>$9.99/month</p>
+            <ul>
+                <li>SQL Fundamentals</li>
+                <li>Database Design</li>
+            </ul>
+            <button onclick="showPopup()">Subscribe</button>
+        </div>
+        <div class="option">
+            <h3>Standard</h3>
+            <p>$19.99/month</p>
+            <ul>
+                <li>SQL Fundamentals</li>
+                <li>DataBase Design</li>
+                <li>Server-side Scripting</li>
+            </ul>
+            <button onclick="showPopup()">Subscribe</button>
+        </div>
+        <div class="option">
+            <h3>Premium</h3>
+            <p>$29.99/month</p>
+            <ul>
+                <li>SQL Fundamentals</li>
+                <li>API Development</li>
+                <li>Database Design</li>
+                <li>Server-side Scripting</li>
+            </ul>
+            <button onclick="showPopup()">Subscribe</button>
+        </div>
+        <div class="option">
+            <h3>Backend Developer</h3>
+            <p>$39.99/month</p>
+            <ul>
+                <li>SQL Fundamentals</li>
+                <li>API Development</li>
+                <li>Database Design</li>
+                <li>Server-side Scripting</li>
+                <li>Cloud Infrastructure</li>
+            </ul>
+            <button onclick="showPopup()">Subscribe</button>
+        </div>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="hidePopup()">&times;</span>
+            <h2>Subscribe Now</h2>
+            <form th:action="@{/card}"  th:object="${card} "method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" name="cardNO" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+-kshitiz
+</div>
+
+
+
+<script>
+    function showPopup() {
+        document.getElementById("popup").style.display = "block";
+    }
+
+    function hidePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+</body>
+</html>
